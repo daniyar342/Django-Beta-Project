@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITILE</title>
+</head>
+<body>
+    {% for product in products %}
+        {{product.name}}
+        {{product.sub_category.name}}
+        {{product.sub_category.category.name}}
+    {% endfor %}
+</body>
+</html>
