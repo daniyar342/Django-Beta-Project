@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=150)
+    name = models.CharField(verbose_name='Категории', max_length=150)
     slug = models.SlugField()
 
     def __str__(self):
@@ -28,6 +28,7 @@ class Product(models.Model):
     storage_conditions = models.TextField()
     # category = models.ForeignKey(Category,null=True,blank=True)
     sub_category = models.ForeignKey(SubCategory,on_delete=models.SET_NULL,null=True)
+
 
     def __str__(self):
         return self.name
