@@ -26,9 +26,9 @@ class SubCategory(models.Model):
         return self.name
 
 class Product(models.Model):
-    name = models.CharField(max_length=255)
-    compound = models.TextField()
-    description = models.TextField()
+    name = models.CharField(verbose_name="Название",max_length=255)
+    compound = models.TextField(verbose_name="Состав")
+    description = models.TextField(verbose_name="Описание")
     applying = models.TextField()
     waiting_time = models.TextField()
     release = models.TextField()
@@ -37,6 +37,9 @@ class Product(models.Model):
     # category = models.ForeignKey(Category,null=True,blank=True)
     sub_category = models.ForeignKey(SubCategory,on_delete=models.SET_NULL,null=True)
 
+    class Meta:
+        verbose_name = 'Препарат'
+        verbose_name_plural = 'Препараты'
 
     def __str__(self):
         return self.name
