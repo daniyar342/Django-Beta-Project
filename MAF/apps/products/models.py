@@ -29,9 +29,10 @@ class Product(models.Model):
     name = models.CharField(verbose_name="Название",max_length=255)
     compound = models.TextField(verbose_name="Состав")
     description = models.TextField(verbose_name="Описание")
-    applying = models.TextField()
-    waiting_time = models.TextField()
-    release = models.TextField()
+    # Вооот здесь я поменял
+    applying = models.TextField(verbose_name="Применение")
+    waiting_time = models.TextField(verbose_name="Время ожидания")
+    release_form = models.TextField(verbose_name="Форма выпуска")
     storage_date = models.TextField()
     storage_conditions = models.TextField()
     # category = models.ForeignKey(Category,null=True,blank=True)
