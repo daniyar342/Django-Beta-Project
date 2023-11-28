@@ -33,13 +33,13 @@ class Product(models.Model):
     applying = models.TextField(verbose_name="Применение")
     waiting_time = models.TextField(verbose_name="Время ожидания")
     release_form = models.TextField(verbose_name="Форма выпуска")
-    storage_date = models.TextField()
-    storage_conditions = models.TextField()
+    storage_date = models.TextField(verbose_name='Срок хранение')
+    storage_conditions = models.TextField(verbose_name='Условия хранения ')
     # category = models.ForeignKey(Category,null=True,blank=True)
     sub_category = models.ForeignKey(SubCategory,on_delete=models.SET_NULL,null=True)
 
     class Meta:
-        verbose_name = 'Препарат'apps
+        verbose_name = 'Препарат'
         verbose_name_plural = 'Препараты'
 
     def __str__(self):
