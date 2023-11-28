@@ -7,11 +7,15 @@ class Category(models.Model):
     name = models.CharField(verbose_name='Категории', max_length=150)
     slug = models.SlugField()
 
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
     def __str__(self):
         return self.name
 
 class SubCategory(models.Model):
-    name = models.CharField(max_length=130)
+    name = models.CharField(verbose_name="Подкатегории",max_length=130)
+
     slug = models.SlugField()
     category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True)
     def __str__(self):
