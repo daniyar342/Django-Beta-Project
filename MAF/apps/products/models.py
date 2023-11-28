@@ -41,7 +41,7 @@ class Product(models.Model):
     sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True, verbose_name='Какой подкатегории относится?')
 
     class Meta:
-        verbose_name = 'Препарат'
+        verbose_name = 'Препарат'apps
         verbose_name_plural = 'Препараты'
 
 
