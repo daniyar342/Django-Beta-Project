@@ -44,6 +44,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-# jdlkjglfldfglkg
-# Doni go home
-# Go go home 
