@@ -6,8 +6,11 @@
 </head>
 <body>
     {% for product in products %}
+    <br>
         {{product.name}}
+    <br>
         {{product.sub_category.name}}
+    <br>
         {{product.sub_category.category.name}}
     {% endfor %}
 </body>
