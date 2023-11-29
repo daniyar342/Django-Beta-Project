@@ -8,3 +8,4 @@ class Index(ListView):
     template_name = 'index.html'
     queryset = Product.objects.all()
     context_object_name = 'products'
+
