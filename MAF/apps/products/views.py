@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+from rest_framework import generics
 from .models import Product
+from .serializer import ProductSeializer
 
-
-class Index(ListView):
-    model = Product
-    template_name = 'index.html'
+class Index(generics.ListAPIView):
     queryset = Product.objects.all()
-    context_object_name = 'products'
+    serializer_class = ProductSeializer

@@ -10,7 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
         'description',
         'applying',
         'waiting_time',
-        'release',
+        'release_form',
         'storage_date',
         'storage_conditions',
         'sub_category',
