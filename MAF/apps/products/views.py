@@ -7,3 +7,4 @@ from .serializer import ProductSeializer
 class Index(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSeializer
+    context_object_name = 'products'
