@@ -58,3 +58,8 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Имя {self.name}, Номер телефона {self.phone}, email {self.email}'
+
+
+def tilek(self):
+    pass
+
