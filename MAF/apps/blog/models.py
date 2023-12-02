@@ -5,7 +5,7 @@ from django.utils import timezone
 class Events(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField()
     image = models.CharField(max_length=150)
 
 class Public(models.Model):
