@@ -1,5 +1,3 @@
-# models.py in your app directory
-
 from django.db import models
 
 
@@ -10,13 +8,15 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
     def __str__(self):
         return self.name
 
+
 class SubCategory(models.Model):
-    name = models.CharField(verbose_name="Подкатегории",max_length=130)
+    name = models.CharField(verbose_name="Подкатегории", max_length=130)
     slug = models.SlugField()
-    category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = 'Подкатегория'
@@ -25,8 +25,9 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.name
 
+
 class Product(models.Model):
-    name = models.CharField(verbose_name="Название",max_length=255)
+    name = models.CharField(verbose_name="Название", max_length=255)
     compound = models.TextField(verbose_name="Состав")
     description = models.TextField(verbose_name="Описание")
     # Вооот здесь я поменял
@@ -36,7 +37,7 @@ class Product(models.Model):
     storage_date = models.TextField(verbose_name='Срок хранение')
     storage_conditions = models.TextField(verbose_name='Условия хранения ')
     # category = models.ForeignKey(Category,null=True,blank=True)
-    sub_category = models.ForeignKey(SubCategory,on_delete=models.SET_NULL,null=True)
+    sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = 'Препарат'
@@ -45,4 +46,15 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-# Ogromnii hui
+
+class Order(models.Model):
+    name = models.CharField(verbose_name='Имя', max_length=255, null=False)
+    phone = models.IntegerField(verbose_name='Телефон', null=False)
+    email = models.EmailField(verbose_name='email', null=True)
+
+    class Meta:
+        verbose_name = 'Клиент'
+        verbose_name_plural = 'Клиенты'
+
+    def __str__(self):
+        return f'Имя {self.name}, Номер телефона {self.phone}, email {self.email}'
