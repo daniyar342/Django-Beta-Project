@@ -44,4 +44,3 @@ class OrderAdmin(admin.ModelAdmin):
         'phone',
         'email',
     ]
-    
