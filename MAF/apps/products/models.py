@@ -30,7 +30,6 @@ class Product(models.Model):
     name = models.CharField(verbose_name="Название", max_length=255)
     compound = models.TextField(verbose_name="Состав")
     description = models.TextField(verbose_name="Описание")
-    # Вооот здесь я поменял
     applying = models.TextField(verbose_name="Применение")
     waiting_time = models.TextField(verbose_name="Время ожидания")
     release_form = models.TextField(verbose_name="Форма выпуска")
@@ -51,10 +50,13 @@ class Order(models.Model):
     name = models.CharField(verbose_name='Имя', max_length=255, null=False)
     phone = models.IntegerField(verbose_name='Телефон', null=False)
     email = models.EmailField(verbose_name='email', null=True)
+    date = models.DateTimeField('Дата создания заявки', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
+        ordering = ['-date']
 
     def __str__(self):
         return f'Имя {self.name}, Номер телефона {self.phone}, email {self.email}'
+
