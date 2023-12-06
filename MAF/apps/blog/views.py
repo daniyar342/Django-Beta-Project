@@ -12,3 +12,5 @@ class BlogEvents(generics.ListAPIView):
 class PublicBlogView(generics.ListAPIView):
     queryset = Public.objects.all()
     serializer_class = PublicSerializer
+
+ # kuhiu
