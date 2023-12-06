@@ -1,5 +1,9 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Product, SubCategory, Category
+=======
+from .models import Product, SubCategory, Category, Order
+>>>>>>> doni_branch
 
 
 @admin.register(Product)
@@ -35,3 +39,15 @@ class CategoryAdmin(admin.ModelAdmin):
         'slug',
     ]
     prepopulated_fields = {'slug': ('name',)}
+<<<<<<< HEAD
+=======
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = [
+        'name',
+        'phone',
+        'email',
+    ]
+>>>>>>> doni_branch
