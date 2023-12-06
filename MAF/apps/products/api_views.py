@@ -1,13 +1,15 @@
 from .models import Product, Order
 from rest_framework import viewsets
 from .serializer import ProductSerializer, OrderSerializer
-
+from rest_framework.permissions import IsAuthenticated
+from .permissions import CanPostProductPermission
 from .token import TOKEN
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [CanPostProductPermission]
 
 
 class ApiApplicationView(viewsets.ModelViewSet):
