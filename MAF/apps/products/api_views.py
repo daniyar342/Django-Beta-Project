@@ -34,3 +34,27 @@ class ApiApplicationView(viewsets.ModelViewSet):
         requests.post(url, json=payload)
 
         return response
+
+
+
+# For example (code):
+#
+# from telegram import Bot
+# from telegram.ext import Updater
+#
+# API_TOKEN = "your_bot_token"
+# API_ID = "your_api_id"
+# API_HASH = "your_api_hash"
+#
+# bot = Bot(token=API_TOKEN)
+# updater = Updater(token=API_TOKEN, use_context=True)
+#
+# # Now you can start adding functionality to your bot using the 'bot' and 'updater' objects.
+
+# Обязательно замените «your_bot_token», «your_api_id» и «your_api_hash» фактическими
+# значениями, которые вы получили. Запустите своего бота: запустите свой код, и теперь
+# ваш бот должен быть подключен к API Telegram, используя предоставленный идентификатор API,
+# хэш API и токен бота. Не забывайте сохранять конфиденциальность своего API-идентификатора,
+# хеша API и токена бота и не разглашать их публично. Если вы работаете над общедоступным
+# проектом, рассмотрите возможность использования переменных среды или файла конфигурации
+# для безопасного хранения этих конфиденциальных значений.
