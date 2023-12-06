@@ -8,8 +8,10 @@ class BlogEventsAdmin(admin.ModelAdmin):
         'title',
         'description',
         'created_at',
-        'image'
+        'image',
+        'slug'
     ]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Public)
@@ -18,22 +20,28 @@ class BlogPublicAdmin(admin.ModelAdmin):
         'title',
         'description',
         'created_at',
-        'image'
+        'image',
+        'slug'
     ]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(New_Products)
 class BlogNewProductsAdmin(admin.ModelAdmin):
     list_display = [
-        'product_name'
+        'product_name',
+        'slug'
     ]
+    prepopulated_fields = {'slug': ('product_name',)}
 
 
 @admin.register(Enxibitation_Calendar)
 class BlogCalendarAdmin(admin.ModelAdmin):
     list_display = [
+        'name_exhibition',
         'period',
         'data_of_participation',
         'location',
-        'name_exhibition'
+        'slug'
     ]
+    prepopulated_fields = {'slug': ('name_exhibition',)}
