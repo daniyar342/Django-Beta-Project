@@ -5,12 +5,6 @@ from .. products.models import Product
 
 
 class Events(models.Model):
-<<<<<<< HEAD
-    title = models.CharField(max_length=150)
-    description = models.TextField()
-    created_at = models.DateTimeField()
-    image = models.CharField(max_length=150)
-=======
     title = models.CharField(verbose_name='События', max_length=150)
     description = models.TextField(verbose_name='Описание')
     created_at = models.DateTimeField(verbose_name='Создано', auto_now_add=True)
@@ -23,7 +17,6 @@ class Events(models.Model):
 
     def __str__(self):
         return self.title
->>>>>>> origin/alter_branch
 
 
 class Public(models.Model):
