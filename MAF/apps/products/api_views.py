@@ -1,16 +1,13 @@
-import requests
-from rest_framework import generics, viewsets
-from rest_framework.generics import mixins
 from .models import Product, Order
-from .serializer import ProductSeializer, OrderSerializer
+from rest_framework import viewsets
+from .serializer import ProductSerializer, OrderSerializer
 
 from .token import TOKEN
 
 
-class Index(generics.ListAPIView):
+class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-    serializer_class = ProductSeializer
-    context_object_name = 'products'
+    serializer_class = ProductSerializer
 
 
 class ApiApplicationView(viewsets.ModelViewSet):
@@ -18,7 +15,7 @@ class ApiApplicationView(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     context_object_name = 'orders'
 
-    def create(self, request, *args, **kwargs):
+    def create(self, request, requests=None, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
         # Получение данных из запроса
         data = request.data
