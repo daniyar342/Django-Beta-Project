@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # My apps created
     'apps.products',
     'apps.blog',
-
+    'drf_yasg',
 
     # Installed app
     'rest_framework',

@@ -8,7 +8,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('id', 'name')
 
-
 class OrderSerializer(serializers.ModelSerializer):
     """Сериализатор для заказов"""
     class Meta:
