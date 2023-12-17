@@ -27,7 +27,6 @@ class SubCategory(models.Model):
 
 
 class Product(models.Model):
-<<<<<<< HEAD
     name = models.CharField(verbose_name='Название продукта', max_length=255)
     compound = models.TextField(verbose_name='Состав')
     description = models.TextField(verbose_name='Описание')
@@ -42,24 +41,6 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Препарат'
         verbose_name_plural = 'Препараты'
-
-    def __str__(self):
-        return self.name
-=======
-    name = models.CharField(verbose_name="Название", max_length=255)
-    compound = models.TextField(verbose_name="Состав")
-    description = models.TextField(verbose_name="Описание")
-    applying = models.TextField(verbose_name="Применение")
-    waiting_time = models.TextField(verbose_name="Время ожидания")
-    release_form = models.TextField(verbose_name="Форма выпуска")
-    storage_date = models.TextField(verbose_name='Срок хранение')
-    storage_conditions = models.TextField(verbose_name='Условия хранения ')
-    # category = models.ForeignKey(Category,null=True,blank=True)
-    sub_category = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True)
-
-    class Meta:
-        verbose_name = 'Продукт'
-        verbose_name_plural = 'Продукты'
 
     def __str__(self):
         return self.name

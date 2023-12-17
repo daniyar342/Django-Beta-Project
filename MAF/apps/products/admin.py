@@ -36,10 +36,8 @@ class CategoryAdmin(admin.ModelAdmin):
         'slug',
     ]
     prepopulated_fields = {'slug': ('name',)}
-<<<<<<<<< Temporary merge branch 1
-=========
 
-
+s
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
@@ -47,4 +45,3 @@ class OrderAdmin(admin.ModelAdmin):
         'phone',
         'email',
     ]
->>>>>>>>> Temporary merge branch 2
