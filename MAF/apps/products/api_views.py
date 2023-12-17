@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from rest_framework import filters, mixins
+from rest_framework.generics import RetrieveAPIView
+
 from .models import Product, Order
 from rest_framework import viewsets
 from .serializer import ProductSerializer, OrderSerializer
@@ -8,12 +10,18 @@ from .permissions import CanPostProductPermission
 
 
 
-class ProductViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+class ProductViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [CanPostProductPermission]
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['name',]
+    # filter_backends = [filters.SearchFilter]
+    # search_fields = ['name',]
+
+
+class ProductRetrieveView(RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'id'
 
 
 class OrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):

@@ -1,5 +1,6 @@
 from rest_framework import routers
 from apps.products import api_views as product_views
+from apps.products.api_views import *
 from apps.products import swagger
 
 
