@@ -1,7 +1,3 @@
-from django.http import HttpResponse
-from rest_framework import filters, mixins
-from rest_framework.generics import RetrieveAPIView
-
 from .models import Product, Order
 from rest_framework import viewsets
 from .serializer import ProductSerializer, OrderSerializer
@@ -9,6 +5,9 @@ from rest_framework.permissions import IsAuthenticated
 from .permissions import CanPostProductPermission
 
 
+from rest_framework.permissions import IsAuthenticated
+from .permissions import CanPostProductPermission
+from .token import TOKEN
 
 class ProductViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Product.objects.all()
@@ -22,6 +21,7 @@ class ProductRetrieveView(RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     lookup_field = 'id'
+    permission_classes = [CanPostProductPermission]
 
 
 class OrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):

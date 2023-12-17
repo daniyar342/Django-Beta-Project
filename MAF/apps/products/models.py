@@ -14,11 +14,7 @@ class Category(models.Model):
 
 
 class SubCategory(models.Model):
-<<<<<<< HEAD
-    name = models.CharField(verbose_name='Подкатегории', max_length=150)
-=======
     name = models.CharField(verbose_name="Подкатегории", max_length=130)
->>>>>>> doni_branch
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
@@ -83,4 +79,3 @@ class Order(models.Model):
     def __str__(self):
         return f'Имя {self.name}, Номер телефона {self.phone}, email {self.email}'
 
->>>>>>> doni_branch

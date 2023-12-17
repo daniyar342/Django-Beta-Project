@@ -1,9 +1,6 @@
 from django.contrib import admin
-<<<<<<< HEAD
 from .models import Product, SubCategory, Category
-=======
 from .models import Product, SubCategory, Category, Order
->>>>>>> doni_branch
 
 
 @admin.register(Product)
@@ -20,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
         'storage_conditions',
         'sub_category',
     ]
-    search_fields = ('name',)
+
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
@@ -39,8 +36,8 @@ class CategoryAdmin(admin.ModelAdmin):
         'slug',
     ]
     prepopulated_fields = {'slug': ('name',)}
-<<<<<<< HEAD
-=======
+<<<<<<<<< Temporary merge branch 1
+=========
 
 
 @admin.register(Order)
@@ -50,4 +47,4 @@ class OrderAdmin(admin.ModelAdmin):
         'phone',
         'email',
     ]
->>>>>>> doni_branch
+>>>>>>>>> Temporary merge branch 2

@@ -57,8 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# jlskjlkf
-# dkgklf
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -136,4 +135,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-TELEGRAM_BOT_TOKEN = '6919718633:AAGOmz_YRG4q18fnY082xZQapn0f-0dMrww'

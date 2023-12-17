@@ -14,4 +14,3 @@ class CanPostProductPermission(BasePermission):
 
         # Allow write access only to admin users
         return request.user and request.user.is_staff
-
