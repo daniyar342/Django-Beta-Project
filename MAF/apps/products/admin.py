@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
         'storage_conditions',
         'sub_category',
     ]
-
+    search_fields = ('name',)
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
