@@ -7,20 +7,14 @@ from .models import Events, Public
 from .serializer import EventSerializer, PublicSerializer
 
 
-class BlogEventsView( mixins.RetrieveModelMixin,
-                   mixins.UpdateModelMixin,
-                   mixins.DestroyModelMixin,
-                   mixins.ListModelMixin,
-                   GenericViewSet):
+class BlogEventsView(mixins.ListModelMixin, GenericViewSet):
+
     queryset = Events.objects.all()
     serializer_class = EventSerializer
 
 
-class PublicBlogView( mixins.RetrieveModelMixin,
-                   mixins.UpdateModelMixin,
-                   mixins.DestroyModelMixin,
-                   mixins.ListModelMixin,
-                   GenericViewSet):
+class PublicBlogView(mixins.ListModelMixin, GenericViewSet):
+
     queryset = Public.objects.all()
     serializer_class = PublicSerializer
 

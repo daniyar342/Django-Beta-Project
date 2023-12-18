@@ -37,7 +37,7 @@ class CategoryAdmin(admin.ModelAdmin):
     ]
     prepopulated_fields = {'slug': ('name',)}
 
-s
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = [

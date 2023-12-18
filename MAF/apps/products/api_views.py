@@ -1,5 +1,8 @@
+from rest_framework.response import Response
+
 from .models import Product, Order
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
+from rest_framework import mixins
 from .serializer import ProductSerializer, OrderSerializer
 from rest_framework.permissions import IsAuthenticated
 from .permissions import CanPostProductPermission
@@ -7,7 +10,7 @@ from .permissions import CanPostProductPermission
 
 from rest_framework.permissions import IsAuthenticated
 from .permissions import CanPostProductPermission
-from .token import TOKEN
+
 
 class ProductViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Product.objects.all()
@@ -17,11 +20,16 @@ class ProductViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     # search_fields = ['name',]
 
 
-class ProductRetrieveView(RetrieveAPIView):
-    queryset = Product.objects.all()
+class ProductRetrieveView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = ProductSerializer
-    lookup_field = 'id'
-    permission_classes = [CanPostProductPermission]
+    queryset = Product.objects.all()
+
+
+    def get(self,request,pk):
+        product = Product.objects.get(id=pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
+
 
 
 class OrderViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):

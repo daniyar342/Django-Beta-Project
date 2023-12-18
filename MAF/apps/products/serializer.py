@@ -6,7 +6,7 @@ class ProductSerializer(serializers.ModelSerializer):
     """Сериализатор для продуктов"""
     class Meta:
         model = Product
-        fields = ('id', 'name')
+        fields = '__all__'
 
 class OrderSerializer(serializers.ModelSerializer):
     """Сериализатор для заказов"""

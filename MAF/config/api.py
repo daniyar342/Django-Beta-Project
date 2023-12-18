@@ -10,4 +10,6 @@ router.register(r'product', product_views.ProductViewSet)
 router.register(r'order', product_views.OrderViewSet)
 router.register(r'blog_events', BlogEventsView)
 router.register(r'public_blog', PublicBlogView)
+router.register(r'product', ProductRetrieveView, basename='your-model')
+
 
