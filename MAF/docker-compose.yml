@@ -1,0 +1,42 @@
+version: "3"
+services:
+  django:
+    build: .
+    container_name: django_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - static_volume:/usr/src/app/static
+    restart: always
+    depends_on:
+      - pgdb
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB:user_db
+      - POSTGRES_USER:user
+      - POSTGRES_PASSWORD:user_password
+    container_name: pgdb
+
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - static_volume:/usr/src/app/static
+    depends_on:
+      - django
+
+  migration:
+    build: .
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate"
+    depends_on:
+      - pgdb
+
+volumes:
+  static_volume:

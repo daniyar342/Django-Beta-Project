@@ -12,6 +12,7 @@ httpx==0.25.2
 idna==3.6
 inflection==0.5.1
 packaging==23.2
+python-dotenv==1.0.0
 python-telegram-bot==20.7
 pytz==2023.3.post1
 PyYAML==6.0.1
@@ -21,3 +22,4 @@ sqlparse==0.4.4
 typing_extensions==4.8.0
 uritemplate==4.1.1
 urllib3==2.1.0
+gunicorn
